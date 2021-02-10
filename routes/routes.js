@@ -1,7 +1,8 @@
 
 const controller = require('./../controllers/controller');
 module.exports= function(app) {
-    app.get('/getemployees', controller.getEmployees);
-    app.get('/', controller.getDefault);   
-    app.post('/addnewemployee', controller.addNewEmployee);
+
+    app.route('/').get(controller.getDefault);  
+    app.route('/getemployees').get(controller.getEmployees);     
+    app.route('/addnewemployee').post(controller.addNewEmployee);
 }
