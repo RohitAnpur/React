@@ -12,7 +12,7 @@ routes(app);
 app.use('/', router)
 //
 app.listen(port, () => {
-console.log("Listening " + port );
+console.log("Listening Port number " + port );
 
 })
 
