@@ -3,6 +3,25 @@ const employee = require('./../models/employee');
 //loading the employee
 const Employee=require('./../models/employee');
 
+const jwt=require('jsonwebtoken');
+
+exports.loginuser = function(request, response){
+    let empName = request.body.empName;
+    let empPwd  = request.body.empPwd;
+
+    Employee.find({empName:empName, function (err,results) {
+        if (err) response.end(err);
+        if (empPwd == results[0].empPwd){
+            //return a token 
+
+        } 
+        else {
+            response.send({status:"Logon Failed"})
+        }
+        
+    }});
+}
+
 exports.getDefault = function(request, response){
     response.send('You are on root route, from controller');
 }
